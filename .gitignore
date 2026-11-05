@@ -24,6 +24,7 @@ wheels/
 
 # Databases
 *.db
+!backend/diabetes_system.db
 *.sqlite3
 
 # Node / Frontend

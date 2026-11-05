@@ -8,6 +8,13 @@ from app.api.endpoints import router as api_router
 # Create tables on startup
 Base.metadata.create_all(bind=engine)
 
+# Auto-seed initial admin, patient, clinical rules, and RAG knowledge if empty
+try:
+    from seed_data import seed_database
+    seed_database()
+except Exception as e:
+    print(f"Notice: database auto-seed skipped or completed: {e}")
+
 app = FastAPI(
     title=settings.PROJECT_NAME,
     version=settings.VERSION,
