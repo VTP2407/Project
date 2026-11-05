@@ -33,7 +33,7 @@ services:
         fromService:
           type: web
           name: diabetes-backend
-          property: host
+          envVarKey: RENDER_EXTERNAL_URL
 
 # 3. Free Managed PostgreSQL Database
 databases:

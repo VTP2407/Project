@@ -9,6 +9,17 @@ export const Login: React.FC = () => {
   const [password, setPassword] = useState('Patient@123456');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showConfig, setShowConfig] = useState(false);
+  const [apiUrl, setApiUrl] = useState(localStorage.getItem('custom_api_url') || '');
+
+  const handleSaveApiUrl = () => {
+    if (apiUrl.trim()) {
+      localStorage.setItem('custom_api_url', apiUrl.trim());
+    } else {
+      localStorage.removeItem('custom_api_url');
+    }
+    window.location.reload();
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +40,14 @@ export const Login: React.FC = () => {
         navigate('/dashboard');
       }
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Đăng nhập không thành công. Vui lòng kiểm tra lại.');
+      console.error('Login error:', err);
+      let msg = 'Đăng nhập không thành công. Vui lòng kiểm tra lại.';
+      if (err.response?.data?.detail) {
+        msg = err.response.data.detail;
+      } else if (err.code === 'ERR_NETWORK' || !err.response) {
+        msg = `Không thể kết nối tới Backend API (${api.defaults.baseURL}). Vui lòng đảm bảo Backend server đang chạy hoặc kiểm tra đường dẫn API.`;
+      }
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -123,6 +141,46 @@ export const Login: React.FC = () => {
             >
               🛡️ Quản Trị Viên (Admin)
             </button>
+          </div>
+
+          <div className="mt-3 text-center">
+            <button
+              type="button"
+              onClick={() => setShowConfig(!showConfig)}
+              className="text-[11px] text-slate-400 hover:text-slate-600 underline"
+            >
+              {showConfig ? '▲ Ẩn cấu hình Backend API' : '⚙️ Cấu hình địa chỉ Backend API'}
+            </button>
+            {showConfig && (
+              <div className="mt-2 p-3 bg-slate-50 rounded-xl border border-slate-200 text-left space-y-2">
+                <label className="text-[11px] font-medium text-slate-600 block">
+                  Đang dùng: <span className="font-mono text-teal-700">{api.defaults.baseURL}</span>
+                </label>
+                <input
+                  type="text"
+                  value={apiUrl}
+                  onChange={(e) => setApiUrl(e.target.value)}
+                  placeholder="https://diabetes-backend.onrender.com"
+                  className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-slate-300 font-mono"
+                />
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={handleSaveApiUrl}
+                    className="px-3 py-1 bg-teal-600 text-white text-xs rounded-md hover:bg-teal-700"
+                  >
+                    Lưu & Tải lại
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { localStorage.removeItem('custom_api_url'); window.location.reload(); }}
+                    className="px-3 py-1 bg-slate-200 text-slate-700 text-xs rounded-md hover:bg-slate-300"
+                  >
+                    Khôi phục mặc định
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

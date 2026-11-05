@@ -1,8 +1,15 @@
 import axios from 'axios';
 
+const customUrl = typeof window !== 'undefined' ? localStorage.getItem('custom_api_url') : null;
 const rawEnv = (import.meta as any).env?.VITE_API_URL;
 let API_BASE = '/api';
-if (rawEnv) {
+
+if (customUrl) {
+  const trimmed = customUrl.trim().replace(/\/$/, '');
+  API_BASE = trimmed.startsWith('http://') || trimmed.startsWith('https://') 
+    ? `${trimmed}/api` 
+    : `https://${trimmed}/api`;
+} else if (rawEnv && rawEnv !== 'undefined') {
   const trimmed = String(rawEnv).trim().replace(/\/$/, '');
   API_BASE = trimmed.startsWith('http://') || trimmed.startsWith('https://') 
     ? `${trimmed}/api` 
