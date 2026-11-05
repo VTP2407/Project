@@ -89,3 +89,4 @@ class RAGEngine:
                 f"[{i}] {res['title']} (Nguồn: {res['source']} - {res['category']}):\n\"{res['content']}\""
             )
         return "\n\n".join(context_parts)
+

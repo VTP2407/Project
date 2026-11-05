@@ -366,3 +366,4 @@ export const ChatAssistant: React.FC = () => {
     </div>
   );
 };
+

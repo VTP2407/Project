@@ -126,3 +126,4 @@ export const AdminRules: React.FC = () => {
     </div>
   );
 };
+

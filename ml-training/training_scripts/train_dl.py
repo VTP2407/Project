@@ -155,3 +155,4 @@ def train_dl_model(epochs: int = 20, batch_size: int = 256, lr: float = 0.001):
 
 if __name__ == "__main__":
     train_dl_model()
+

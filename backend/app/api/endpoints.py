@@ -564,3 +564,4 @@ def get_admin_system_stats(admin: User = Depends(require_admin), db: Session = D
         "active_model": model_service.metadata.get("model_name", "XGBoost") if model_service.metadata else "XGBoost",
         "dataset_name": "diabetes_prediction_dataset.csv (100,000 records)"
     }
+

@@ -41,3 +41,4 @@ class BaseAgent:
 
     def run(self, context: Dict[str, Any]) -> tuple[Dict[str, Any], str]:
         raise NotImplementedError
+

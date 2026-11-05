@@ -225,3 +225,4 @@ class AIProviderConfig(Base):
     is_active = Column(Boolean, default=False)
     status = Column(String(50), default="CONNECTED")
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+

@@ -264,3 +264,4 @@ export const AdminKnowledge: React.FC = () => {
     </div>
   );
 };
+

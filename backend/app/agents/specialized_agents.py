@@ -221,3 +221,4 @@ class ReportAgent(BaseAgent):
         
         summary = f"Báo cáo tổng hợp {len(measurements)} lần đo: Trung bình {report_data['mean_glucose']} mg/dL, {report_data['abnormal_count']} lần bất thường."
         return report_data, summary
+

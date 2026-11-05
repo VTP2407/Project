@@ -32,7 +32,11 @@ node_modules/
 dist/
 .DS_Store
 
+# Jupyter
+.ipynb_checkpoints/
+
 # IDEs
 .vscode/
 .idea/
 *.swp
+
