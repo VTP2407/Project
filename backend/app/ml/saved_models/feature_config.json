@@ -1,0 +1,48 @@
+{
+  "feature_columns": [
+    "gender",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "smoking_history",
+    "bmi",
+    "HbA1c_level",
+    "blood_glucose_level"
+  ],
+  "target_column": "diabetes",
+  "categorical_columns": [
+    "gender",
+    "smoking_history"
+  ],
+  "numerical_columns": [
+    "age",
+    "hypertension",
+    "heart_disease",
+    "bmi",
+    "HbA1c_level",
+    "blood_glucose_level"
+  ],
+  "gender_classes": [
+    "Female",
+    "Male",
+    "Other"
+  ],
+  "smoking_classes": [
+    "No Info",
+    "current",
+    "ever",
+    "former",
+    "never",
+    "not current"
+  ],
+  "feature_importance": {
+    "gender": 0.011506897397339344,
+    "age": 0.055836498737335205,
+    "hypertension": 0.061263129115104675,
+    "heart_disease": 0.030562778934836388,
+    "smoking_history": 0.023579122498631477,
+    "bmi": 0.033095840364694595,
+    "HbA1c_level": 0.5366407632827759,
+    "blood_glucose_level": 0.2475150227546692
+  }
+}

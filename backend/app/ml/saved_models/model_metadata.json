@@ -1,0 +1,39 @@
+{
+  "model_name": "XGBoost",
+  "model_type": "scikit-learn / ensemble",
+  "version": "1.0.0",
+  "dataset_name": "diabetes_prediction_dataset.csv",
+  "dataset_sha256": "F233FC470E904201F35310D061CB46CA0A6BC7CA5C3E428B769FB4F87F69929B",
+  "trained_date": "2026-11-05",
+  "best_hyperparameters": "{'objective': 'binary:logistic', 'base_score': None, 'booster': None, 'callbacks': None, 'colsample_bylevel': None, 'colsample_bynode': None, 'colsample_bytree': None, 'device': None, 'early_stopping_rounds': None, 'enable_categorical': False, 'eval_metric': 'logloss', 'feature_types': None, 'feature_weights': None, 'gamma': None, 'grow_policy': None, 'importance_type': None, 'interaction_constraints': None, 'learning_rate': 0.1, 'max_bin': None, 'max_cat_threshold': None, 'max_cat_to_onehot': None, 'max_delta_step': None, 'max_depth': 5, 'max_leaves': None, 'min_child_weight': None, 'missing': nan, 'monotone_constraints': None, 'multi_strategy': None, 'n_estimators': 100, 'n_jobs': None, 'num_parallel_tree': None, 'random_state': 42, 'reg_alpha': None, 'reg_lambda': None, 'sampling_method': None, 'scale_pos_weight': None, 'subsample': None, 'tree_method': None, 'validate_parameters': None, 'verbosity': None}",
+  "validation_comparison": {
+    "LogisticRegression": {
+      "accuracy": 0.8873,
+      "precision": 0.42135150482680295,
+      "recall": 0.8729411764705882,
+      "f1_score": 0.5683646112600537,
+      "roc_auc": 0.9612932176149146
+    },
+    "RandomForest": {
+      "accuracy": 0.9712,
+      "precision": 1.0,
+      "recall": 0.6611764705882353,
+      "f1_score": 0.7960339943342776,
+      "roc_auc": 0.9748043715846995
+    },
+    "XGBoost": {
+      "accuracy": 0.9714,
+      "precision": 0.9895833333333334,
+      "recall": 0.6705882352941176,
+      "f1_score": 0.7994389901823282,
+      "roc_auc": 0.9804277081324333
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.9725,
+    "precision": 0.984822934232715,
+    "recall": 0.6870588235294117,
+    "f1_score": 0.8094248094248094,
+    "roc_auc": 0.9796960945033751
+  }
+}
