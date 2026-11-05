@@ -236,12 +236,12 @@ def seed_database():
         # 6. Seed RL Simulation Experiment
         existing_rl = db.query(RLExperiment).first()
         if not existing_rl:
-            print("Simulating baseline Q-Learning education policy (500 episodes)...")
-            sim_res = run_simulation(episodes=500)
+            print("Seeding baseline Q-Learning education policy (100 episodes)...")
+            sim_res = run_simulation(episodes=100)
             exp = RLExperiment(
                 name="Baseline Q-Learning Health Education Policy",
                 algorithm="Q-Learning",
-                total_episodes=500,
+                total_episodes=100,
                 epsilon=0.1,
                 alpha=0.1,
                 gamma=0.95,

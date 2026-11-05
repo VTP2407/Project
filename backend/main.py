@@ -1,19 +1,10 @@
 import os
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.database.session import engine, Base
 from app.api.endpoints import router as api_router
-
-# Create tables on startup
-Base.metadata.create_all(bind=engine)
-
-# Auto-seed initial admin, patient, clinical rules, and RAG knowledge if empty
-try:
-    from seed_data import seed_database
-    seed_database()
-except Exception as e:
-    print(f"Notice: database auto-seed skipped or completed: {e}")
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -22,6 +13,16 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc"
 )
+
+@app.on_event("startup")
+def on_startup():
+    print("FastAPI startup: checking and initializing database tables...")
+    try:
+        Base.metadata.create_all(bind=engine)
+        from seed_data import seed_database
+        seed_database()
+    except Exception as e:
+        print(f"Notice: database initialization in startup event: {e}")
 
 app.add_middleware(
     CORSMiddleware,
@@ -43,6 +44,6 @@ def root():
     }
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
 
