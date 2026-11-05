@@ -1,5 +1,7 @@
 import os
-from typing import List
+import json
+import ast
+from typing import List, Union
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
@@ -26,7 +28,21 @@ class Settings(BaseSettings):
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "llama3")
     
-    CORS_ORIGINS: List[str] = ["*"]
+    CORS_ORIGINS: Union[str, List[str]] = ["*"]
+    
+    @property
+    def cors_origins_list(self) -> List[str]:
+        if isinstance(self.CORS_ORIGINS, list):
+            return self.CORS_ORIGINS
+        if isinstance(self.CORS_ORIGINS, str):
+            val = self.CORS_ORIGINS.strip()
+            if val.startswith("[") and val.endswith("]"):
+                try:
+                    return ast.literal_eval(val)
+                except Exception:
+                    pass
+            return [i.strip() for i in val.split(",") if i.strip()]
+        return ["*"]
     
     # ML Models path
     SAVED_MODELS_DIR: str = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "ml", "saved_models"))

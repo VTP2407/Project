@@ -16,8 +16,6 @@ services:
         generateValue: true
       - key: AI_PROVIDER
         value: local_demo
-      - key: CORS_ORIGINS
-        value: "*"
 
   # 2. Frontend React SPA (Static Site)
   - type: web
