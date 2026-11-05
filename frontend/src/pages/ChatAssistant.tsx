@@ -30,7 +30,7 @@ export const ChatAssistant: React.FC = () => {
     {
       id: 'welcome',
       role: 'assistant',
-      content: 'Xin chào! Tôi là Trợ lý AI Đa Tác Nhân chuyên sâu về Đái Tháo Đường. Hệ thống phối hợp giữa các Agent: Ngữ cảnh bệnh nhân, Đánh giá học máy, Tri thức RAG chuẩn y khoa, Giáo dục lối sống và Thẩm định an toàn lâm sàng. Bạn đang quan tâm đến vấn đề sức khỏe nào hôm nay?'
+      content: 'Xin chào! Tôi là Trợ lý AI Đa Agent chuyên sâu về Đái Tháo Đường. Hệ thống phối hợp giữa các Agent: Ngữ cảnh bệnh nhân, Đánh giá học máy, Tri thức RAG chuẩn y khoa, Giáo dục lối sống và Thẩm định an toàn lâm sàng. Bạn đang quan tâm đến vấn đề sức khỏe nào hôm nay?'
     }
   ]);
   const [input, setInput] = useState('');
@@ -152,7 +152,7 @@ export const ChatAssistant: React.FC = () => {
     <div className="space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">Trợ Lý AI Đa Tác Nhân (Multi-Agent Chat)</h1>
+          <h1 className="text-2xl font-bold text-slate-800">Trợ Lý AI Đa Agent (Multi-Agent Chat)</h1>
           <p className="text-xs text-slate-500 mt-0.5">
             Phối hợp tự động: Orchestrator ➔ Context ➔ Knowledge (RAG) ➔ Lifestyle ➔ Safety Agent
           </p>
@@ -236,7 +236,7 @@ export const ChatAssistant: React.FC = () => {
                 <div className="w-7 h-7 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center animate-pulse">
                   <Bot className="w-4 h-4" />
                 </div>
-                <span>Hệ thống Đa Tác Nhân đang phân tích câu hỏi & thẩm định an toàn...</span>
+                <span>Hệ thống Đa Agent đang phân tích câu hỏi & thẩm định an toàn...</span>
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -307,13 +307,13 @@ export const ChatAssistant: React.FC = () => {
                 <BrainCircuit className="w-8 h-8 mb-2 opacity-40 text-purple-500" />
                 <p className="text-xs font-medium">Chưa có tiến trình nào được kích hoạt.</p>
                 <p className="text-[11px] text-slate-400 mt-1">
-                  Gửi câu hỏi để quan sát Orchestrator phân luồng và điều phối các tác nhân AI.
+                  Gửi câu hỏi để quan sát Orchestrator phân luồng và điều phối các Agent AI.
                 </p>
               </div>
             ) : (
               <div className="space-y-2.5">
                 <p className="text-[11px] font-semibold text-slate-500">
-                  Chuỗi phối hợp ({activeTimeline.length} tác nhân):
+                  Chuỗi phối hợp ({activeTimeline.length} Agent):
                 </p>
                 {activeTimeline.map((step, idx) => (
                   <div

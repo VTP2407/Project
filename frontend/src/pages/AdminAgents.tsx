@@ -36,7 +36,7 @@ export const AdminAgents: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-800">Giám Sát Hệ Thống Đa Tác Nhân (Agent Monitor)</h1>
+        <h1 className="text-2xl font-bold text-slate-800">Giám Sát Hệ Thống Đa Agent (Agent Monitor)</h1>
         <p className="text-sm text-slate-500 mt-1">
           Theo dõi quy trình phối hợp, phân luồng điều kiện và thời gian thực thi (latency) của từng Agent chuyên biệt.
         </p>
@@ -45,7 +45,7 @@ export const AdminAgents: React.FC = () => {
       {/* Agents Roster Grid */}
       <div>
         <h3 className="font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">
-          Danh Sách 8 Tác Nhân Chuyên Trách Được Đăng Ký
+          Danh Sách 8 Agent Chuyên Trách Được Đăng Ký
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           {agents.map((ag) => (
@@ -122,7 +122,7 @@ export const AdminAgents: React.FC = () => {
               {/* Step by step timeline */}
               <div className="space-y-3">
                 <p className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Thứ tự điều phối tác nhân (Execution Flow):
+                  Thứ tự điều phối Agent (Execution Flow):
                 </p>
                 {selectedExec.timeline?.map((step: any, index: number) => (
                   <div key={index} className="flex items-start gap-3 relative">

@@ -63,7 +63,7 @@ export const HealthReports: React.FC = () => {
               Báo Cáo Tóm Tắt Theo Dõi Đái Tháo Đường
             </h2>
             <p className="text-xs text-teal-700 font-semibold mt-0.5">
-              Hệ thống AI Đa Tác Nhân (Diabetes Multi-Agent System)
+              Hệ thống AI Đa Agent (Diabetes Multi-Agent System)
             </p>
             <p className="text-xs text-slate-400 mt-1">
               Ngày xuất báo cáo: {new Date().toLocaleDateString('vi-VN')}

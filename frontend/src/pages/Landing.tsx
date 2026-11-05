@@ -38,10 +38,10 @@ export const Landing: React.FC = () => {
             Tích hợp Học máy, Deep Learning & RAG Y khoa Chuẩn
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Hệ Thống Đa Tác Nhân AI Hỗ Trợ <span className="text-teal-600">Bệnh Tiểu Đường</span> Toàn Diện
+            Hệ Thống Đa Agent AI Hỗ Trợ <span className="text-teal-600">Bệnh Tiểu Đường</span> Toàn Diện
           </h1>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            Nền tảng hỗ trợ sức khỏe thông minh kết hợp 8 chuyên gia tác nhân AI, mô hình XGBoost & PyTorch MLP được huấn luyện trên 100,000 hồ sơ bệnh nhân, công cụ suy luận RAG và bộ quy tắc an toàn lâm sàng ADA/WHO.
+            Nền tảng hỗ trợ sức khỏe thông minh kết hợp 8 Agent AI chuyên trách, mô hình XGBoost & PyTorch MLP được huấn luyện trên 100,000 hồ sơ bệnh nhân, công cụ suy luận RAG và bộ quy tắc an toàn lâm sàng ADA/WHO.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
             <Link to="/login" className="w-full sm:w-auto px-6 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl shadow-md flex items-center justify-center gap-2 transition">

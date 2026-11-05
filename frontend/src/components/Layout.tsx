@@ -75,7 +75,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           </Link>
           <Link to="/chat" className={navItemClass('/chat')}>
             <Bot className="w-4 h-4 text-teal-600" />
-            Trợ lý Đa Tác Nhân
+            Trợ lý Đa Agent
           </Link>
           <Link to="/profile" className={navItemClass('/profile')}>
             <Heart className="w-4 h-4 text-rose-500" />
