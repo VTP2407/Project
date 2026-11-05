@@ -35,7 +35,7 @@ services:
         fromService:
           type: web
           name: diabetes-backend
-          property: url
+          property: host
 
 # 3. Free Managed PostgreSQL Database
 databases:
